@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Music Shop</string>
+    <string name="quantity_counter">0</string>
 </resources>

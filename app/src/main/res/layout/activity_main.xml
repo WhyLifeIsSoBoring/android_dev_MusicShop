@@ -99,6 +99,7 @@
 
     <Button
         android:id="@+id/mines"
+        android:onClick="decreaseQuantity"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_below="@id/quantity"
@@ -117,12 +118,13 @@
         android:layout_marginTop="15dp"
         android:layout_marginRight="10dp"
         android:layout_toLeftOf="@id/plus"
-        android:text="0"
+        android:text="@string/quantity_counter"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp" />
 
     <Button
         android:id="@+id/plus"
+        android:onClick="increaseQuantity"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_below="@id/quantity"
