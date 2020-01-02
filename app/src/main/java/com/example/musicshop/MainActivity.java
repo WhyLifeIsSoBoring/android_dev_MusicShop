@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void increaseQuantity(View view) {
-        quantity = quantity + 1;
+        if ( quantity == 5) quantity = 5;
+        else quantity = quantity + 1;
         TextView quantityCounter = findViewById(R.id.quantity_counter);
         quantityCounter.setText("" + quantity);
         TextView priceTextView = findViewById(R.id.priceTextView);
@@ -76,6 +77,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        quantity = 0;
+        TextView quantityCounter = findViewById(R.id.quantity_counter);
+        quantityCounter.setText("" + quantity);
+
         itemName = spinner.getSelectedItem().toString();
         price = (double)itemPrice.get(itemName);
         TextView priceTextView = findViewById(R.id.priceTextView);
