@@ -1,7 +1,6 @@
 package com.example.musicshop;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -127,15 +126,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Order order = new Order();
 
         order.userName = userNameEditText.getText().toString();
-        Log.d("userName", order.userName);
 
         order.goodsName = itemName;
-        Log.d("goodsName", order.goodsName);
 
         order.quantity = quantity;
-        Log.d("quantity","" + order.quantity);
 
         order.orderPrice = quantity * price;
-        Log.d("orderPrice","" + order.orderPrice);
     }
 }
