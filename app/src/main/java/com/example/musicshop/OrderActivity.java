@@ -1,12 +1,18 @@
 package com.example.musicshop;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class OrderActivity extends AppCompatActivity {
+
+    String[] addresses = {"maksimka.stankevich.2001@mail.ru"};
+    String subject = "Order from Music Shop";
+    String emailText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +28,22 @@ public class OrderActivity extends AppCompatActivity {
         double orderPrice = receivedOrderIntent.getDoubleExtra("orderPrice",0);
         double price = receivedOrderIntent.getDoubleExtra("price",0);
 
-
+        emailText = "Customer name: " + userName + "\n" + "Goods name: " + goodsName
+                + "\n" + "Quantity: " + quantity + "\n" + "Price: " + price +"\n" + "Order price: " + orderPrice;
         TextView orderTextView = findViewById(R.id.orderTextView);
-        orderTextView.setText("Customer name: " + userName + "\n" + "Goods name: " + goodsName
-                + "\n" + "Quantity: " + quantity + "\n" + "Price: " + price +"\n" + "Order price: " + orderPrice);
+        orderTextView.setText(emailText);
     }
+
+    public void submitOrder(View view) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, emailText);
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
 }
