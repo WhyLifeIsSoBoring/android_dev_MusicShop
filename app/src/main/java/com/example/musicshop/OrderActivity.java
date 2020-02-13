@@ -13,6 +13,8 @@ public class OrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
+        setTitle("Your offer");
+
         Intent receivedOrderIntent = getIntent();
         String userName = receivedOrderIntent.getStringExtra("userName");
         String goodsName = receivedOrderIntent.getStringExtra("goodsName");
