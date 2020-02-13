@@ -6,5 +6,5 @@ public class Order {
     String goodsName;
     int quantity;
     double orderPrice;
-    
+
 }
