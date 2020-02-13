@@ -18,9 +18,11 @@ public class OrderActivity extends AppCompatActivity {
         String goodsName = receivedOrderIntent.getStringExtra("goodsName");
         int quantity = receivedOrderIntent.getIntExtra("quantity",0);
         double orderPrice = receivedOrderIntent.getDoubleExtra("orderPrice",0);
+        double price = receivedOrderIntent.getDoubleExtra("price",0);
 
 
         TextView orderTextView = findViewById(R.id.orderTextView);
-        orderTextView.setText(userName + "\n" + goodsName + "\n" + quantity + "\n" + orderPrice);
+        orderTextView.setText("Customer name: " + userName + "\n" + "Goods name: " + goodsName
+                + "\n" + "Quantity: " + quantity + "\n" + "Price: " + price +"\n" + "Order price: " + orderPrice);
     }
 }

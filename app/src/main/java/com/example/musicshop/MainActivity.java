@@ -132,6 +132,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         order.quantity = quantity;
 
+        order.price = price;
+
         order.orderPrice = quantity * price;
 
         Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
@@ -139,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         orderIntent.putExtra("goodsName",order.goodsName);
         orderIntent.putExtra("quantity",order.quantity);
         orderIntent.putExtra("orderPrice",order.orderPrice);
+        orderIntent.putExtra("price",order.price);
 
         startActivity(orderIntent);
     }
